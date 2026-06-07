@@ -36,14 +36,15 @@ governed, tested, production multi-agent workflow** — MCP-driven, end to end.
 ## The capstone: COBOL → Spring Boot, with evidence
 
 A fictional client (**Meridian National Bank**) wants two COBOL programs (`CUSTMGMT`, `ACCTPROC`)
-modernized to Spring Boot. The previous vendor quoted a 1-for-1 rewrite of *every line*. The board's
-constraint: **don't rebuild untouched code — but prove every deletion with data.**
+modernized to Spring Boot Java (latest version). The previous vendor quoted a 1-for-1 rewrite of
+*every line* within 6 months. **You are an Ascender!** We want you to help solve this problem much
+faster! The board's constraint: **make sure to optimize the code that was driving value!**
 
 The client handed over the source, copybooks, and a **full year of JCL + CICS production logs**.
-Students must build an AAVA pipeline that separates **ACTIVE** code from **DEAD** code and modernizes
-only what's live. The exercise has a **deliberate trap**: one program's dead code is statically
-reachable and *only the runtime logs* expose it. (The answer + scoring rubric live in the instructor
-Solution Key, distributed separately to facilitators.)
+Students must build an AAVA pipeline that **optimizes the code that was driving value** for the
+client! The exercise has a **deliberate trap!** Think through what that could be and plan
+accordingly! (The answer + scoring rubric live in the instructor Solution Key, distributed
+separately to facilitators.)
 
 ---
 
@@ -62,7 +63,7 @@ Solution Key, distributed separately to facilitators.)
 
 To keep the answer out of student hands, these are held privately and handed to facilitators:
 
-- **Solution Key** — reference decomposition, exact ACTIVE/DEAD analysis, scoring rubric, 8 agent specs.
+- **Solution Key** — reference decomposition, exact analysis, scoring rubric, agent specs.
 - **Facilitator Guide** — per-module timing, talking points, gotchas, exercise answers.
 - **Deck + builder** — the 39-slide `AAVA_Advanced_Engineering_Lab_v1.pptx` (lives in the Ascendion
   Windows Training folder) and its python-pptx builder.
