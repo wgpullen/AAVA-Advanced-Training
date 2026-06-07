@@ -37,7 +37,7 @@ So I'm giving you everything our ops team could pull:
 What the board wants from you, in this order:
   A. A defensible plan: what gets migrated, what gets RETIRED, and the EVIDENCE for each call.
   B. Modern technical docs + user stories for the parts we keep (our mainframe folks are retiring).
-  C. A target Spring Boot design + working code + tests for the active business logic.
+  C. A target Spring Boot design + working code + tests for the business logic worth keeping.
   D. An executive summary I can take back to the board showing scope, savings, and risk.
 
 I do not want to pay to rebuild code that no customer or job has touched in five years. But I also
@@ -59,7 +59,7 @@ Clock's ticking — we present to the board in two weeks.
 | `CUSTREC.cpy` | `source/copybooks/CUSTREC.cpy` | Customer record layout (copybook) |
 | `ACCTREC.cpy` | `source/copybooks/ACCTREC.cpy` | Account record layout (copybook) |
 | `batch_jcl_execution.log` | `logs/batch_jcl_execution.log` | 2024 production JCL batch execution log + annual paragraph exec summary |
-| `cics_transaction.log` | `logs/cics_transaction.log` | 2024 production CICS transaction log + dead-transaction analysis |
+| `cics_transaction.log` | `logs/cics_transaction.log` | 2024 production CICS transaction log (volumes by program) |
 
 > **Two ways to feed these to your agents:**
 > 1. **Azure Blob (primary):** the files are pre-staged in the `cobol-legacy-modernization`
@@ -72,10 +72,12 @@ Clock's ticking — we present to the board in two weeks.
 
 ## The board's success criteria (this is what you're graded on)
 
-1. **Did you separate ACTIVE code from DEAD code — and can you prove it from the logs?**
-2. **Did you avoid modernizing dead code?** (Every dead paragraph you migrate is wasted client money.)
-3. **Did you preserve the active business logic faithfully** in the Spring Boot target?
-4. **Can Eleanor take your executive report to the board** — scope, savings %, and risk, on one screen?
+1. **Did you focus the modernization on the code that actually drives business value** — and can you
+   prove your scoping decisions from the evidence the client provided?
+2. **Did you avoid wasting effort (and the client's money)** on code that isn't earning its keep?
+3. **Did you preserve the business logic that matters faithfully** in the Spring Boot target?
+4. **Can Eleanor take your executive report to the board** — scope, value, and risk, on one screen?
 
-> ⚠️ **The trap is deliberate.** A purely static read of the COBOL will mislead you on **CUSTMGMT**.
-> Read `01-student-instructions.md` only after you've made your first decomposition attempt.
+> ⚠️ **There is a deliberate trap in this exercise.** Bring your legacy-modernization instincts:
+> not every line of COBOL is worth carrying forward, and the client handed you everything you need
+> to tell the difference. Make your own decomposition *before* reading `01-student-instructions.md`.

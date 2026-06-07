@@ -57,29 +57,25 @@ JOB NAME: CUSTDEL1    JOB ID: JOB14502    CLASS: B    PRIORITY: 3
 ================================================================================
 ANNUAL EXECUTION SUMMARY - CUSTMGMT PROGRAM
 ================================================================================
-PARAGRAPH                    | EXEC COUNT | LAST EXECUTED  | STATUS
------------------------------|------------|----------------|--------
-0000-MAIN-CONTROL            |    48,291  | 2024-12-31     | ACTIVE
-1000-INITIALIZE              |    48,291  | 2024-12-31     | ACTIVE
-2000-ADD-CUSTOMER            |     3,847  | 2024-12-31     | ACTIVE
-2100-WRITE-NEW-CUSTOMER      |     3,612  | 2024-12-31     | ACTIVE
-3000-UPDATE-CUSTOMER         |    12,456  | 2024-12-31     | ACTIVE
-3100-APPLY-UPDATES           |    12,201  | 2024-12-31     | ACTIVE
-4000-DELETE-CUSTOMER          |       156  | 2024-12-28     | ACTIVE
-5000-INQUIRY-CUSTOMER        |    31,204  | 2024-12-31     | ACTIVE
-6000-GENERATE-REPORT         |        12  | 2024-12-31     | ACTIVE
-6100-WRITE-REPORT-HEADER     |        12  | 2024-12-31     | ACTIVE
-6200-WRITE-REPORT-DETAIL     |    51,444  | 2024-12-31     | ACTIVE
-6300-WRITE-REPORT-FOOTER     |        12  | 2024-12-31     | ACTIVE
-7000-ARCHIVE-CUSTOMERS       |         0  | 2019-06-15     | DEAD
-7100-WRITE-ARCHIVE           |         0  | 2019-06-15     | DEAD
-8000-PURGE-INACTIVE          |         0  | 2018-12-01     | DEAD
-9000-MIGRATE-TO-NEW-SYSTEM   |         0  | NEVER          | DEAD
-9900-TERMINATE               |    48,291  | 2024-12-31     | ACTIVE
-
-ACTIVE PARAGRAPHS: 12/16 (75%)
-DEAD PARAGRAPHS: 4/16 (25%)
-DEAD CODE LINES: ~85 of ~290 procedural lines (29.3%)
+PARAGRAPH                    | EXEC COUNT | LAST EXECUTED
+-----------------------------|------------|----------------
+0000-MAIN-CONTROL            |    48,291  | 2024-12-31
+1000-INITIALIZE              |    48,291  | 2024-12-31
+2000-ADD-CUSTOMER            |     3,847  | 2024-12-31
+2100-WRITE-NEW-CUSTOMER      |     3,612  | 2024-12-31
+3000-UPDATE-CUSTOMER         |    12,456  | 2024-12-31
+3100-APPLY-UPDATES           |    12,201  | 2024-12-31
+4000-DELETE-CUSTOMER         |       156  | 2024-12-28
+5000-INQUIRY-CUSTOMER        |    31,204  | 2024-12-31
+6000-GENERATE-REPORT         |        12  | 2024-12-31
+6100-WRITE-REPORT-HEADER     |        12  | 2024-12-31
+6200-WRITE-REPORT-DETAIL     |    51,444  | 2024-12-31
+6300-WRITE-REPORT-FOOTER     |        12  | 2024-12-31
+7000-ARCHIVE-CUSTOMERS       |         0  | 2019-06-15
+7100-WRITE-ARCHIVE           |         0  | 2019-06-15
+8000-PURGE-INACTIVE          |         0  | 2018-12-01
+9000-MIGRATE-TO-NEW-SYSTEM   |         0  | NEVER
+9900-TERMINATE               |    48,291  | 2024-12-31
 
 ================================================================================
 
@@ -104,48 +100,25 @@ JOB NAME: ACCTNTLY    JOB ID: JOB12900    CLASS: A    PRIORITY: 9
 ================================================================================
 ANNUAL EXECUTION SUMMARY - ACCTPROC PROGRAM
 ================================================================================
-PARAGRAPH                    | EXEC COUNT | LAST EXECUTED  | STATUS
------------------------------|------------|----------------|--------
-0000-MAIN-CONTROL            |       365  | 2024-12-31     | ACTIVE
-1000-INITIALIZE              |       365  | 2024-12-31     | ACTIVE
-2000-PROCESS-TRANSACTIONS    |       365  | 2024-12-31     | ACTIVE
-2100-VALIDATE-TRANSACTION    | 4,689,155  | 2024-12-31     | ACTIVE
-2200-APPLY-TRANSACTION       | 4,562,865  | 2024-12-31     | ACTIVE
-2300-PROCESS-REVERSAL        |     8,395  | 2024-12-31     | ACTIVE
-2900-LOG-ERROR               |   126,290  | 2024-12-31     | ACTIVE
-3000-CALCULATE-INTEREST      |       365  | 2024-12-31     | ACTIVE
-3100-CALC-DAILY-INTEREST     | 3,260,910  | 2024-12-31     | ACTIVE
-4000-GENERATE-STATEMENTS     |       365  | 2024-12-31     | ACTIVE
-4100-WRITE-STATEMENT         |   439,825  | 2024-12-31     | ACTIVE
-5000-CALCULATE-MONTHLY-FEES  |         0  | 2021-03-31     | DEAD
-5100-APPLY-LOW-BALANCE-FEE   |         0  | 2021-03-31     | DEAD
-5200-APPLY-EXCESS-TRAN-FEE   |         0  | 2021-03-31     | DEAD
-6000-GENERATE-PAPER-STMTS    |         0  | 2020-06-30     | DEAD
-7000-Y2K-DATE-CHECK          |         0  | 2000-01-15     | DEAD
-9000-TERMINATE               |       365  | 2024-12-31     | ACTIVE
-
-ACTIVE PARAGRAPHS: 11/16 (68.75%)
-DEAD PARAGRAPHS: 5/16 (31.25%)
-DEAD CODE LINES: ~55 of ~195 procedural lines (28.2%)
-
-================================================================================
-COMBINED SYSTEM SUMMARY
-================================================================================
-TOTAL PROGRAMS ANALYZED: 2
-TOTAL PARAGRAPHS: 32
-ACTIVE PARAGRAPHS: 23 (71.9%)
-DEAD PARAGRAPHS: 9 (28.1%)
-
-ESTIMATED DEAD CODE LINES: 140 of 485 procedural lines (28.9%)
-ESTIMATED MIGRATION SAVINGS: 28.9% reduction in transformation scope
-
-DEAD CODE CATEGORIES:
-- ARCHIVE PROCESSING (CUSTMGMT 7000-7100): Replaced by DB2 archival 2020
-- PURGE PROCESSING (CUSTMGMT 8000): Blocked by compliance 2019
-- MIGRATION STUB (CUSTMGMT 9000): Cancelled project 2017
-- MONTHLY FEE CALC (ACCTPROC 5000-5200): Replaced by FEECALC 2021
-- PAPER STATEMENTS (ACCTPROC 6000): Replaced by e-statements 2020
-- Y2K CHECK (ACCTPROC 7000): Obsolete since 2000
+PARAGRAPH                    | EXEC COUNT | LAST EXECUTED
+-----------------------------|------------|----------------
+0000-MAIN-CONTROL            |       365  | 2024-12-31
+1000-INITIALIZE              |       365  | 2024-12-31
+2000-PROCESS-TRANSACTIONS    |       365  | 2024-12-31
+2100-VALIDATE-TRANSACTION    | 4,689,155  | 2024-12-31
+2200-APPLY-TRANSACTION       | 4,562,865  | 2024-12-31
+2300-PROCESS-REVERSAL        |     8,395  | 2024-12-31
+2900-LOG-ERROR               |   126,290  | 2024-12-31
+3000-CALCULATE-INTEREST      |       365  | 2024-12-31
+3100-CALC-DAILY-INTEREST     | 3,260,910  | 2024-12-31
+4000-GENERATE-STATEMENTS     |       365  | 2024-12-31
+4100-WRITE-STATEMENT         |   439,825  | 2024-12-31
+5000-CALCULATE-MONTHLY-FEES  |         0  | 2021-03-31
+5100-APPLY-LOW-BALANCE-FEE   |         0  | 2021-03-31
+5200-APPLY-EXCESS-TRAN-FEE   |         0  | 2021-03-31
+6000-GENERATE-PAPER-STMTS    |         0  | 2020-06-30
+7000-Y2K-DATE-CHECK          |         0  | 2000-01-15
+9000-TERMINATE               |       365  | 2024-12-31
 
 ================================================================================
 END OF BATCH EXECUTION LOG

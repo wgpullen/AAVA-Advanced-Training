@@ -207,9 +207,7 @@
            ADD 1 TO WS-STMT-GENERATED.
 
       *================================================================
-      * DEAD CODE - LEGACY FEE CALCULATION
-      * Replaced by real-time fee engine (FEECALC program) in 2021
-      * Last batch execution: 2021-03-31
+      * MONTHLY FEE CALCULATION
       *================================================================
        5000-CALCULATE-MONTHLY-FEES.
            MOVE LOW-VALUES TO ACCT-ID
@@ -239,17 +237,13 @@
            ADD 1 TO ACCT-FEE-COUNT.
 
       *================================================================
-      * DEAD CODE - PAPER STATEMENT GENERATION
-      * Replaced by electronic statements in 2020
-      * Last execution: 2020-06-30
+      * PAPER STATEMENT GENERATION
       *================================================================
        6000-GENERATE-PAPER-STATEMENTS.
            DISPLAY 'PAPER STATEMENTS DEPRECATED - USE ESTMT SYSTEM'.
 
       *================================================================
-      * DEAD CODE - Y2K REMEDIATION CHECK
-      * Was critical in 1999, never removed
-      * Last execution: 2000-01-15
+      * Y2K REMEDIATION DATE CHECK
       *================================================================
        7000-Y2K-DATE-CHECK.
            IF WS-CURRENT-DATE(1:2) = '19'

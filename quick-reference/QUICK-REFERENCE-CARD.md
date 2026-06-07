@@ -80,9 +80,10 @@ Never approve what you haven't seen produce correct output. Approval body uses `
 - `pipeLineAgents` only lists EXECUTED agents; `workflowExecutionId` is at `data.workflowExecutionId`.
 
 ## Capstone — Meridian National Bank (afternoon)
-**Goal:** plan + build COBOL → Spring Boot for `CUSTMGMT` + `ACCTPROC`; retire dead code with evidence.
+**Goal:** plan + build COBOL → Spring Boot Java for `CUSTMGMT` + `ACCTPROC`; modernize what drives value.
 **Inputs (Azure `cobol-legacy-modernization` OR GitHub `lab-artifacts/`):** `source/*.cbl`,
 `source/copybooks/*.cpy`, `logs/batch_jcl_execution.log`, `logs/cics_transaction.log`.
 **GitHub raw base:** `https://raw.githubusercontent.com/wgpullen/AAVA-Advanced-Training/main/lab-artifacts/`
-**The question you must answer:** *how many paragraphs do you migrate vs retire — and what's your evidence?*
-> 💡 A static read of the COBOL is not enough. The logs are there for a reason. Use them.
+**The question you must answer:** *what do you modernize, what do you leave behind, and what's your evidence?*
+> 💡 Bring your legacy-modernization instincts. Not every line is worth carrying forward — and the
+> client handed you everything you need to decide.

@@ -2,7 +2,7 @@
 
 > Read the client brief (`00-client-brief.md`) **first**, and take your first crack at a
 > decomposition before opening this file. The single most valuable learning moment of the day is
-> discovering the dead-code trap *yourself*.
+> discovering the trap *yourself*.
 
 You have ~3 hours after lunch. Work in your team. You will be **MCP-driven**: you author and push
 every artifact into AAVA through Claude Code + the AAVA MCP server, test each one, then approve
@@ -21,18 +21,16 @@ From Eleanor's email + the artifact inventory, pull out:
 4. **Constraints** — "don't migrate untouched code" *and* "prove every deletion with data."
 5. **Domain rules** — banking; COMP-3 = money; statements; interest accrual.
 6. **Risk / compliance** — retiring SMEs, board scrutiny, can't delete without evidence.
-7. **Success metric** — scope reduction %, faithful active-logic migration.
+7. **Success metric** — right-sized scope; faithful migration of the logic that matters.
 8. **The hidden trap** — *(you'll name this after Phase 2)*.
 
 ## Phase 2 — Decompose into a workflow (25 min)
 
 Apply the **Golden Rule: one agent = one independent task.** Sketch the pipeline. Ask yourself:
 
-- How do I figure out what's actually running vs what just *exists* in the source?
-- Can I trust a **static** read of the COBOL alone? (Look closely at `CUSTMGMT`'s `0000-MAIN-CONTROL`
-  `EVALUATE` versus `ACCTPROC`'s `0000-MAIN-CONTROL`. One program's dead paragraphs are *unreachable*;
-  the other's dead paragraphs are *reachable in code but never triggered in production*. Which is which —
-  and which tool catches each?)
+- What does this codebase actually *do for the business*, and how would I know which parts still matter?
+- Can a purely static read of the source tell me what's worth modernizing — or do I need other
+  evidence the client provided? If so, what evidence, and which agent/tool would use it?
 - What knowledge does every agent need? (→ a shared KB)
 - Where does the handoff data flow? (→ `azure_parent_folder` threaded through every agent — Commandment #2)
 
@@ -87,8 +85,8 @@ always carry a known fallback list).
 
 ## Phase 4 — Test, validate, approve one-by-one (40 min)
 
-- **Unit test before you trust:** `execute_single_agent` on Agent 1, then Agent 2, reading the output.
-  Did Agent 2 correctly flag the dead paragraphs **with log evidence and a reason**?
+- **Unit test before you trust:** `execute_single_agent` on your early agents, reading each output.
+  Is every conclusion an agent draws **backed by concrete evidence from the inputs** — not invented?
 - **Run the chain:** `trigger_workflow`, then `poll_workflow_result` / `stream_workflow_progress_formatted`.
 - **Debug:** if an agent emitted synthetic data instead of calling a tool, that's Commandment #7 —
   tighten the instruction with blocking language and re-run.
@@ -97,5 +95,5 @@ always carry a known fallback list).
 
 ## Phase 5 — Debrief (final 20 min)
 
-Be ready to answer: **How many paragraphs did you migrate, how many did you retire, and what was your
-evidence for each retirement?** The instructor compares your numbers to the Solution Key.
+Be ready to answer: **What did you choose to modernize, what did you leave behind, and what was your
+evidence for each call?** The instructor compares your decisions to the Solution Key.

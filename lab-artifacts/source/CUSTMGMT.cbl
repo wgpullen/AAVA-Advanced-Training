@@ -236,9 +236,7 @@
            WRITE REPORT-RECORD.
 
       *================================================================
-      * DEAD CODE SECTION - ARCHIVE PROCESSING
-      * Last executed: 2019-06-15 (per JCL logs)
-      * Replaced by DB2 archival process in 2020
+      * ARCHIVE PROCESSING - move inactive customers to archive file
       *================================================================
        7000-ARCHIVE-CUSTOMERS.
            OPEN OUTPUT ARCHIVE-FILE
@@ -263,9 +261,7 @@
            ADD 1 TO WS-DELETE-COUNT.
 
       *================================================================
-      * DEAD CODE SECTION - PURGE PROCESSING
-      * Last executed: 2018-12-01 (per JCL logs)
-      * Compliance team blocked this in 2019 - data retention policy
+      * PURGE PROCESSING - remove inactive customers past retention
       *================================================================
        8000-PURGE-INACTIVE.
            MOVE LOW-VALUES TO CUST-ID
@@ -284,9 +280,7 @@
            END-PERFORM.
 
       *================================================================
-      * DEAD CODE SECTION - MIGRATION STUB
-      * Never executed in production (per JCL logs)
-      * Was planned for 2017 migration that was cancelled
+      * MIGRATION TO NEW SYSTEM
       *================================================================
        9000-MIGRATE-TO-NEW-SYSTEM.
            DISPLAY 'MIGRATION NOT IMPLEMENTED'

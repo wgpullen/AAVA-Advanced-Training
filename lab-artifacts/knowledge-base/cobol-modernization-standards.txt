@@ -1,14 +1,7 @@
 COBOL LEGACY MODERNIZATION STANDARDS
 =====================================
 
-PURPOSE: Guide AAVA agents through COBOL-to-Spring Boot transformation with runtime intelligence.
-
-DEAD CODE DETECTION CRITERIA
-- Paragraph with 0 executions in 12-month log window = DEAD
-- Paragraph last executed > 2 years ago = DEAD
-- Transaction ID with INACTIVE status in CICS log = DEAD
-- JCL job with DISABLED status = DEAD
-- Do NOT migrate dead code to Spring Boot
+PURPOSE: Guide AAVA agents through COBOL-to-Spring Boot transformation.
 
 COBOL-TO-SPRING BOOT MAPPING
 - COBOL PROGRAM = Spring Boot @Service class
@@ -41,17 +34,12 @@ DEPENDENCY MAP FORMAT
 - List all COBOL programs with CALL relationships
 - List all copybooks with COPY relationships
 - List all file definitions with I/O relationships
-- Mark each component as ACTIVE or DEAD based on logs
-
-ACTIVE CODE MAP FORMAT
-- For each paragraph: name, execution count, last executed date, status
-- Confidence score: HIGH (>1000 executions/year), MEDIUM (1-1000), LOW (0 but referenced by active code)
-- Migration priority: P1 (high volume active), P2 (low volume active), P3 (skip - dead)
 
 EXECUTIVE REPORT REQUIREMENTS
-- Show total COBOL lines vs lines requiring migration
-- Show dead code percentage and savings
-- Show active code map with confidence scores
-- Show Spring Boot target architecture
-- Include ROI: lines NOT migrated = cost savings
+- Show the migration scope and the Spring Boot target architecture
+- Justify scoping decisions with evidence from the artifacts provided
 - Professional HTML with embedded CSS
+
+NOTE: This is a starter reference. A strong modernization plan adds whatever additional
+standards and analysis criteria the engagement requires — the client gave you the source,
+copybooks, and a full year of production logs for a reason. Decide what else belongs here.

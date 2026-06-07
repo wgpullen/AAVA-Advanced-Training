@@ -7,17 +7,17 @@ GENERATED: 2025-01-02 06:00:00 EST
 
 TRANSACTION SUMMARY BY PROGRAM
 ================================================================================
-PROGRAM    | TRAN ID | DAILY AVG | PEAK HOUR | TOTAL 2024  | STATUS
------------|---------|-----------|-----------|-------------|--------
-CUSTMGMT   | CUST    |       132 |        28 |      48,291 | ACTIVE
-CUSTMGMT   | CINQ    |        85 |        19 |      31,204 | ACTIVE
-CUSTMGMT   | CADD    |        11 |         4 |       3,847 | ACTIVE
-CUSTMGMT   | CUPD    |        34 |         8 |      12,456 | ACTIVE
-CUSTMGMT   | CDEL    |      0.43 |         2 |         156 | ACTIVE
-CUSTMGMT   | CRPT    |      0.03 |         1 |          12 | ACTIVE
-CUSTMGMT   | CARC    |         0 |         0 |           0 | INACTIVE
-CUSTMGMT   | CPRG    |         0 |         0 |           0 | INACTIVE
-CUSTMGMT   | CMIG    |         0 |         0 |           0 | INACTIVE
+PROGRAM    | TRAN ID | DAILY AVG | PEAK HOUR | TOTAL 2024  | LAST SEEN
+-----------|---------|-----------|-----------|-------------|------------
+CUSTMGMT   | CUST    |       132 |        28 |      48,291 | 2024-12-31
+CUSTMGMT   | CINQ    |        85 |        19 |      31,204 | 2024-12-31
+CUSTMGMT   | CADD    |        11 |         4 |       3,847 | 2024-12-31
+CUSTMGMT   | CUPD    |        34 |         8 |      12,456 | 2024-12-31
+CUSTMGMT   | CDEL    |      0.43 |         2 |         156 | 2024-12-28
+CUSTMGMT   | CRPT    |      0.03 |         1 |          12 | 2024-12-31
+CUSTMGMT   | CARC    |         0 |         0 |           0 | 2019-06-15
+CUSTMGMT   | CPRG    |         0 |         0 |           0 | 2018-12-01
+CUSTMGMT   | CMIG    |         0 |         0 |           0 | NEVER
 
 ONLINE RESPONSE TIME METRICS (CUSTMGMT)
 ================================================================================
@@ -45,25 +45,12 @@ TRANSIENT DATA    |    512K |           5MB |        10%
 ================================================================================
 BATCH JOB SCHEDULE - ACCTPROC
 ================================================================================
-JOB NAME   | SCHEDULE        | AVG DURATION | LAST RUN    | STATUS
------------|-----------------|--------------|-------------|--------
-ACCTNTLY   | DAILY 01:00 EST |    6 min 23s | 2024-12-31  | ACTIVE
-ACCTRPT    | MONTHLY 1st     |   12 min 45s | 2024-12-01  | ACTIVE
-ACCTFEE    | NEVER           |         N/A  | 2021-03-31  | DISABLED
-ACCTSTMT   | NEVER           |         N/A  | 2020-06-30  | DISABLED
-
-================================================================================
-DEAD TRANSACTION ANALYSIS
-================================================================================
-LAST EXECUTION TIMELINE:
-- CMIG (Migrate): NEVER EXECUTED IN PRODUCTION
-- CPRG (Purge): Last 2018-12-01 (6 years ago) - Compliance blocked
-- CARC (Archive): Last 2019-06-15 (5.5 years ago) - Replaced by DB2
-- ACCTFEE (Monthly Fees): Last 2021-03-31 (3.75 years ago) - Replaced by FEECALC
-- ACCTSTMT (Paper Stmts): Last 2020-06-30 (4.5 years ago) - E-statements
-
-RECOMMENDATION: Do NOT migrate dead transactions to Spring Boot.
-SAVINGS: 9 dead paragraphs = ~140 lines of COBOL = ~400-600 lines of Java NOT needed
+JOB NAME   | SCHEDULE        | AVG DURATION | LAST RUN
+-----------|-----------------|--------------|-------------
+ACCTNTLY   | DAILY 01:00 EST |    6 min 23s | 2024-12-31
+ACCTRPT    | MONTHLY 1st     |   12 min 45s | 2024-12-01
+ACCTFEE    | NOT SCHEDULED   |         N/A  | 2021-03-31
+ACCTSTMT   | NOT SCHEDULED   |         N/A  | 2020-06-30
 
 ================================================================================
 END OF CICS TRANSACTION LOG
