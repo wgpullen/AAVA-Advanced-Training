@@ -3,3 +3,8 @@
 *.pyc
 __pycache__/
 .DS_Store
+
+# Instructor materials — held privately, NOT published (contain the answer key)
+solution-key/
+facilitator-guide/
+deck/

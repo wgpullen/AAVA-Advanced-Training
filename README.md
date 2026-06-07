@@ -42,8 +42,8 @@ constraint: **don't rebuild untouched code — but prove every deletion with dat
 The client handed over the source, copybooks, and a **full year of JCL + CICS production logs**.
 Students must build an AAVA pipeline that separates **ACTIVE** code from **DEAD** code and modernizes
 only what's live. The exercise has a **deliberate trap**: one program's dead code is statically
-reachable and *only the runtime logs* expose it. (Answer: **9 dead / 23 active paragraphs, ~28.9%
-scope reduction.** See the Solution Key.)
+reachable and *only the runtime logs* expose it. (The answer + scoring rubric live in the instructor
+Solution Key, distributed separately to facilitators.)
 
 ---
 
@@ -56,14 +56,16 @@ scope reduction.** See the Solution Key.)
 | `lab-artifacts/source/` | `CUSTMGMT.cbl`, `ACCTPROC.cbl` + `copybooks/` |
 | `lab-artifacts/logs/` | `batch_jcl_execution.log`, `cics_transaction.log` (2024 production) |
 | `lab-artifacts/knowledge-base/` | `cobol-modernization-standards.txt` (seed KB) |
-| `solution-key/SOLUTION-KEY.md` | 🔒 **Instructor only** — decomposition, exact ACTIVE/DEAD analysis, scoring rubric |
-| `solution-key/reference-agents/` | The 8 production-validated agent specs |
-| `facilitator-guide/FACILITATOR-GUIDE.md` | Per-module timing, talking points, gotchas, exercise answers |
 | `quick-reference/QUICK-REFERENCE-CARD.md` | Student one-pager (commandments, MCP cheat-sheet, agentConfigs) |
-| `deck/build_aava_advanced_training.py` | python-pptx builder → `AAVA_Advanced_Engineering_Lab_v1.pptx` |
 
-> **Slide decks live outside the repo** (in the Ascendion Windows Training folder). The builder script
-> is versioned here; rebuild with `python deck/build_aava_advanced_training.py <output.pptx>`.
+### Instructor materials (distributed separately — NOT in this public repo)
+
+To keep the answer out of student hands, these are held privately and handed to facilitators:
+
+- **Solution Key** — reference decomposition, exact ACTIVE/DEAD analysis, scoring rubric, 8 agent specs.
+- **Facilitator Guide** — per-module timing, talking points, gotchas, exercise answers.
+- **Deck + builder** — the 39-slide `AAVA_Advanced_Engineering_Lab_v1.pptx` (lives in the Ascendion
+  Windows Training folder) and its python-pptx builder.
 
 ---
 
