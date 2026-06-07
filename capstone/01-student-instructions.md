@@ -18,9 +18,9 @@ From Eleanor's email + the artifact inventory, pull out:
 1. **Business goal** — what outcome does the board actually want?
 2. **Inputs provided** — what data do you have? (source, copybooks, JCL log, CICS log)
 3. **Outputs required** — what must you deliver? (plan, docs, stories, design, code, tests, exec report)
-4. **Constraints** — "don't migrate untouched code" *and* "prove every deletion with data."
+4. **Constraints** — modernize only what delivers value; justify your scope with data.
 5. **Domain rules** — banking; COMP-3 = money; statements; interest accrual.
-6. **Risk / compliance** — retiring SMEs, board scrutiny, can't delete without evidence.
+6. **Risk / compliance** — retiring SMEs, board scrutiny, decisions must be evidence-backed.
 7. **Success metric** — right-sized scope; faithful migration of the logic that matters.
 8. **The hidden trap** — *(you'll name this after Phase 2)*.
 

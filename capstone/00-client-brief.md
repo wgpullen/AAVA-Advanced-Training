@@ -35,10 +35,10 @@ So I'm giving you everything our ops team could pull:
   4. A full year of CICS transaction logs — 2024 production (logs/cics_transaction.log)
 
 What the board wants from you, in this order:
-  A. A defensible plan: what gets migrated, what gets RETIRED, and the EVIDENCE for each call.
-  B. Modern technical docs + user stories for the parts we keep (our mainframe folks are retiring).
+  A. A defensible, right-sized modernization plan — with the EVIDENCE behind every scoping call.
+  B. Modern technical docs + user stories for the parts we carry forward (our mainframe folks are retiring).
   C. A target Spring Boot design + working code + tests for the business logic worth keeping.
-  D. An executive summary I can take back to the board showing scope, savings, and risk.
+  D. An executive summary I can take back to the board showing scope, value, and risk.
 
 I do not want to pay to rebuild code that no customer or job has touched in five years. But I also
 will not let you delete anything you can't justify with data. Show me your reasoning.
