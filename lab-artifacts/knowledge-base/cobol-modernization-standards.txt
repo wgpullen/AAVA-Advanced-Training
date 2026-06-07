@@ -1,0 +1,57 @@
+COBOL LEGACY MODERNIZATION STANDARDS
+=====================================
+
+PURPOSE: Guide AAVA agents through COBOL-to-Spring Boot transformation with runtime intelligence.
+
+DEAD CODE DETECTION CRITERIA
+- Paragraph with 0 executions in 12-month log window = DEAD
+- Paragraph last executed > 2 years ago = DEAD
+- Transaction ID with INACTIVE status in CICS log = DEAD
+- JCL job with DISABLED status = DEAD
+- Do NOT migrate dead code to Spring Boot
+
+COBOL-TO-SPRING BOOT MAPPING
+- COBOL PROGRAM = Spring Boot @Service class
+- COBOL PARAGRAPH = Java method
+- COBOL COPYBOOK = Java DTO/Entity class
+- COBOL FILE SECTION = Spring Data JPA Repository
+- COBOL WORKING-STORAGE = Class instance variables
+- COBOL EVALUATE = Java switch/if-else
+- COBOL PERFORM = Method call
+- COBOL COMP-3 = BigDecimal
+- COBOL PIC X = String
+- COBOL PIC 9 = Integer/Long
+- COBOL PIC S9V99 = BigDecimal
+- CICS TRANSACTION = REST API endpoint (@RestController)
+- JCL BATCH JOB = Spring Batch @Scheduled job
+
+SPRING BOOT STANDARDS
+- Java 21, Spring Boot 3.5
+- Jakarta annotations (not javax)
+- Spring Data JPA for persistence
+- @RestController for APIs
+- @Service for business logic
+- @Repository for data access
+- BigDecimal for all monetary values
+- JUnit 5 + Mockito for testing
+- Maven build with spring-boot-starter-parent
+- application.yml for configuration
+
+DEPENDENCY MAP FORMAT
+- List all COBOL programs with CALL relationships
+- List all copybooks with COPY relationships
+- List all file definitions with I/O relationships
+- Mark each component as ACTIVE or DEAD based on logs
+
+ACTIVE CODE MAP FORMAT
+- For each paragraph: name, execution count, last executed date, status
+- Confidence score: HIGH (>1000 executions/year), MEDIUM (1-1000), LOW (0 but referenced by active code)
+- Migration priority: P1 (high volume active), P2 (low volume active), P3 (skip - dead)
+
+EXECUTIVE REPORT REQUIREMENTS
+- Show total COBOL lines vs lines requiring migration
+- Show dead code percentage and savings
+- Show active code map with confidence scores
+- Show Spring Boot target architecture
+- Include ROI: lines NOT migrated = cost savings
+- Professional HTML with embedded CSS

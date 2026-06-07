@@ -1,0 +1,5 @@
+# Built decks live in the Ascendion Windows Training folder, not the repo
+*.pptx
+*.pyc
+__pycache__/
+.DS_Store

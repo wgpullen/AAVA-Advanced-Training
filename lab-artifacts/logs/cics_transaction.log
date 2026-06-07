@@ -1,0 +1,70 @@
+================================================================================
+CICS TRANSACTION LOG - PRODUCTION REGION CICSPRD1
+SYSTEM: MAINFRAME-PROD-01 | REGION: CICSPRD1
+DATE RANGE: 2024-01-01 THROUGH 2024-12-31
+GENERATED: 2025-01-02 06:00:00 EST
+================================================================================
+
+TRANSACTION SUMMARY BY PROGRAM
+================================================================================
+PROGRAM    | TRAN ID | DAILY AVG | PEAK HOUR | TOTAL 2024  | STATUS
+-----------|---------|-----------|-----------|-------------|--------
+CUSTMGMT   | CUST    |       132 |        28 |      48,291 | ACTIVE
+CUSTMGMT   | CINQ    |        85 |        19 |      31,204 | ACTIVE
+CUSTMGMT   | CADD    |        11 |         4 |       3,847 | ACTIVE
+CUSTMGMT   | CUPD    |        34 |         8 |      12,456 | ACTIVE
+CUSTMGMT   | CDEL    |      0.43 |         2 |         156 | ACTIVE
+CUSTMGMT   | CRPT    |      0.03 |         1 |          12 | ACTIVE
+CUSTMGMT   | CARC    |         0 |         0 |           0 | INACTIVE
+CUSTMGMT   | CPRG    |         0 |         0 |           0 | INACTIVE
+CUSTMGMT   | CMIG    |         0 |         0 |           0 | INACTIVE
+
+ONLINE RESPONSE TIME METRICS (CUSTMGMT)
+================================================================================
+FUNCTION   | AVG MS | P95 MS | P99 MS | TIMEOUT COUNT
+-----------|--------|--------|--------|-------------
+INQUIRY    |     45 |     82 |    156 |            3
+ADD        |     67 |    124 |    245 |            0
+UPDATE     |     52 |     98 |    189 |            1
+DELETE     |     48 |     89 |    167 |            0
+REPORT     |  2,450 |  4,200 |  6,800 |            2
+
+PEAK USAGE HOURS: 09:00-11:00 EST, 14:00-16:00 EST
+WEEKEND ACTIVITY: 12% of weekday volume (inquiry only)
+
+================================================================================
+CICS RESOURCE UTILIZATION - CUSTMGMT
+================================================================================
+RESOURCE          | CURRENT | MAX ALLOCATED | UTILIZATION
+------------------|---------|---------------|------------
+TASK CONTROL      |      12 |           50  |        24%
+FILE CONTROL      |       3 |           10  |        30%
+TEMP STORAGE      |     2MB |          20MB |        10%
+TRANSIENT DATA    |    512K |           5MB |        10%
+
+================================================================================
+BATCH JOB SCHEDULE - ACCTPROC
+================================================================================
+JOB NAME   | SCHEDULE        | AVG DURATION | LAST RUN    | STATUS
+-----------|-----------------|--------------|-------------|--------
+ACCTNTLY   | DAILY 01:00 EST |    6 min 23s | 2024-12-31  | ACTIVE
+ACCTRPT    | MONTHLY 1st     |   12 min 45s | 2024-12-01  | ACTIVE
+ACCTFEE    | NEVER           |         N/A  | 2021-03-31  | DISABLED
+ACCTSTMT   | NEVER           |         N/A  | 2020-06-30  | DISABLED
+
+================================================================================
+DEAD TRANSACTION ANALYSIS
+================================================================================
+LAST EXECUTION TIMELINE:
+- CMIG (Migrate): NEVER EXECUTED IN PRODUCTION
+- CPRG (Purge): Last 2018-12-01 (6 years ago) - Compliance blocked
+- CARC (Archive): Last 2019-06-15 (5.5 years ago) - Replaced by DB2
+- ACCTFEE (Monthly Fees): Last 2021-03-31 (3.75 years ago) - Replaced by FEECALC
+- ACCTSTMT (Paper Stmts): Last 2020-06-30 (4.5 years ago) - E-statements
+
+RECOMMENDATION: Do NOT migrate dead transactions to Spring Boot.
+SAVINGS: 9 dead paragraphs = ~140 lines of COBOL = ~400-600 lines of Java NOT needed
+
+================================================================================
+END OF CICS TRANSACTION LOG
+================================================================================
