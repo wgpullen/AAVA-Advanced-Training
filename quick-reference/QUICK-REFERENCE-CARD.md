@@ -5,7 +5,7 @@
 ---
 
 ## The 11 Commandments (never violate)
-1. **NEVER** put guardrails on workflows — only on agents.
+1. **Reuse before you create** — never rebuild a tool, KB, or guardrail that already exists.
 2. `azure_parent_folder` MUST propagate through **all** agents (Agent 1 generates it).
 3. Tool names must match **EXACTLY** (including spaces / "Tool" suffix).
 4. `AzureBlobWriterTool` param is **`content`**, not `file_content`.
@@ -49,13 +49,14 @@ STEP K — Upload via "AzureBlobWriterTool" (content = your markdown). DO NOT PR
 STEP K+1 — Output: azure_parent_folder + SAS URL + handoff summary for Agent #N+1.
 ```
 
-## Shared tools — REUSE, don't recreate (realm 32)
-| Tool (exact name) | ID | Use |
-|---|---|---|
-| `Current DateTime Tool` | 4525 | generate `azure_parent_folder` |
-| `AzureBlobReaderTool` | 4521 | read one file |
-| `AzureBlobWriterTool` | 5964 | write file + return SAS URL |
-| `AzureBlobRecursiveReader` | 3412 | read all files in a folder (⚠️ confirm exact name) |
+## Shared tools — REUSE, don't recreate (agents attach tools from ANY realm)
+| Tool (exact name) | ID | Realm | Use |
+|---|---|---|---|
+| `Current DateTime Tool` | 4525 | 32 | generate `azure_parent_folder` |
+| `AzureBlobReaderTool` | 4521 | 32 | read one file |
+| `AzureBlobWriterTool` | 5964 | 1 | write file + return SAS URL |
+| `AzureBlobRecursiveReaderTool` | 8426 | 59 | read all files in a folder |
+> When building an agent you can attach a tool from **any** realm — `find_aava_artifact`, then reuse by ID. Don't recreate.
 
 ## MCP tool cheat-sheet (Claude Code + `mcp-aava`)
 | Task | Tool |

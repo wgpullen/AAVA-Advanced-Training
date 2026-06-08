@@ -45,10 +45,11 @@ Build in **Commandment #10 order: KB → GR → Tool → Agent → Workflow.**
 
 1. **Reuse, don't recreate.** The Azure tools already exist in realm 32 — find them first:
    ```
-   find_aava_artifact(artifact_type="tools", name="AzureBlobWriterTool")
-   find_aava_artifact(artifact_type="tools", name="AzureBlobReaderTool")
-   find_aava_artifact(artifact_type="tools", name="Current DateTime Tool")
-   # recursive reader: confirm the EXACT registered name before wiring it in (Commandment #3)
+   find_aava_artifact(artifact_type="tools", name="AzureBlobWriterTool")          # id 5964 (realm 1)
+   find_aava_artifact(artifact_type="tools", name="AzureBlobReaderTool")          # id 4521 (realm 32)
+   find_aava_artifact(artifact_type="tools", name="AzureBlobRecursiveReaderTool") # id 8426 (realm 59)
+   find_aava_artifact(artifact_type="tools", name="Current DateTime Tool")        # id 4525 (realm 32)
+   # tools attach cross-realm — reuse by ID regardless of the realm you're working in
    ```
 2. **KB:** create `cobol-modernization-standards` from
    `lab-artifacts/knowledge-base/cobol-modernization-standards.txt` via `create_aava_knowledge_base`.
